@@ -5,10 +5,7 @@ const logger = require('./login');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
-const PORTAL_URLS = {
-  NGIT: 'http://ngit-netra.teleuniv.in/',
-  KMEC: 'http://kmec-netra.teleuniv.in/',
-};
+const PORTAL_URL = 'http://ngit-netra.teleuniv.in/';
 
 const userSessions = new Map();
 const userCommands = new Map(); // Track command usage per user
@@ -22,13 +19,13 @@ bot.catch((err, ctx) => {
 // ✅ Start Command with Reply Keyboard
 bot.command('start', (ctx) => {
   const userId = ctx.from.id;
-  
+
   // Track user's command count
   userCommands.set(userId, (userCommands.get(userId) || 0) + 1);
-  userSessions.set(userId, { step: 'askInstitute' });
+  userSessions.set(userId, { step: 'askMobile' });
 
   ctx.reply(
-    `👋 *Welcome to Ngit-Kmec Bunktendance Bot!*\n\n` +
+    `👋 *Welcome to NGIT Bunktendance Bot!*\n\n` +
     `📌 Choose an option below or type your response:`,
     {
       parse_mode: 'Markdown',
@@ -46,16 +43,15 @@ bot.command('start', (ctx) => {
 
 // ✅ Handle "Check Attendance" Button Click
 bot.hears("📊 Check Attendance", (ctx) => {
-  userSessions.set(ctx.from.id, { step: 'askInstitute' });
-  ctx.reply("Are you from *NGIT* or *KMEC*? Reply with *ngit* or *kmec*.", { parse_mode: "Markdown" });
+  userSessions.set(ctx.from.id, { step: 'askMobile' });
+  ctx.reply("📱 Send your *10-digit (Netra) mobile number* to proceed.", { parse_mode: "Markdown" });
 });
 
 // ✅ Handle "Help" Button Click
 bot.hears("📖 Help", (ctx) => {
   ctx.reply("ℹ️ *How to use this bot:*\n\n" +
             "1️⃣ Type /start to begin.\n" +
-            "2️⃣ Select your college (NGIT/KMEC).\n" +
-            "3️⃣ Enter your registered mobile number.\n\n" +
+            "2️⃣ Enter your registered mobile number.\n\n" +
             "✅ Then, your attendance details will be fetched automatically!", 
             { parse_mode: "Markdown" });
 });
@@ -66,10 +62,10 @@ bot.hears("ℹ️ About", (ctx) => {
             "*Hrushikesh-csm* - who never hit 75% attendance but still wants you to\n\n" +
             "🛠️ *Built Using:*\n" +
             "💻 Node.js & Web Scraping 🕵️‍♂️\n" +
-            "📡 Powered by Telegraf.js 🚀", 
-            { parse_mode: "Markdown" });
+            "📡 Powered by Telegraf.js 🚀\n\n" +
+            "🔗 *Source Code:* [GitHub Repository](https://github.com/HrushikeshMiddela/Bunktendance-Bot.git)", 
+            { parse_mode: "Markdown", disable_web_page_preview: true });
 });
-
 
 // ✅ Handle User Inputs
 bot.on('text', async (ctx) => {
@@ -80,33 +76,20 @@ bot.on('text', async (ctx) => {
     return ctx.reply('⚠️ Please start with /start.');
   }
 
-  const userInput = ctx.message.text.trim().toUpperCase();
-
-  if (userSession.step === 'askInstitute') {
-    if (!['NGIT', 'KMEC'].includes(userInput)) {
-      return ctx.reply('❌ Invalid input. Reply with *ngit* or *kmec*.', { parse_mode: 'Markdown' });
-    }
-
-    userSessions.set(userId, { step: 'askMobile', institute: userInput });
-    return ctx.reply(`✅ You selected *${userInput}*. Now, send your 10-digit (Netra) mobile number.`);
-  }
+  const userInput = ctx.message.text.trim();
 
   if (userSession.step === 'askMobile') {
     if (!/^\d{10}$/.test(userInput)) {
       return ctx.reply('🚫 Send a valid 10-digit mobile number.');
     }
 
-    const { institute } = userSession;
-    const portalUrl = PORTAL_URLS[institute];
     userSessions.delete(userId);
 
     try {
       await ctx.reply('⏳ agu kochem time padthadi...'); 
-      const attendanceData = await fetchAttendance(portalUrl, userInput, institute);
+      const attendanceData = await fetchAttendance(PORTAL_URL, userInput, "NGIT");
       await ctx.reply(attendanceData, { parse_mode: 'Markdown' });
 
-      // Show user how many times they used commands
-      
     } catch (error) {
       logger.error('Attendance fetch error', { error: error.message, userId });
       await ctx.reply(`⚠️ Error: ${error.message}`);
