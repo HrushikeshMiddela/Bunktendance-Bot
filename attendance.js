@@ -21,7 +21,13 @@ async function fetchAttendance(portalUrl, mobileNumber) {
 
         // Fill in login details
         await page.fill('#login_mobilenumber', mobileNumber);
-        await page.fill('input[type="password"]', 'Ngit123$');
+        // Detect the correct password based on the portal URL
+const password = portalUrl.includes('kmec') ? 'Kmec123$' : 'Ngit123$';
+
+// Fill in login details
+await page.fill('#login_mobilenumber', mobileNumber);
+await page.fill('input[type="password"]', password);
+
 
         // Click login button
         const loginButton = await page.$('button[type="submit"]');
@@ -32,7 +38,9 @@ async function fetchAttendance(portalUrl, mobileNumber) {
         await page.waitForNavigation({ waitUntil: 'networkidle' });
 
         // Manually go to attendance page
-        await page.goto(`http://ngit-netra.teleuniv.in/student/attendance`, { timeout: 60000 });
+        // 🔥 Dynamically go to the correct attendance page based on portal URL
+    await page.goto(`${portalUrl}/student/attendance`, { timeout: 60000 });
+
 
         logger.info("✅ Manually navigated to attendance page.");
 
