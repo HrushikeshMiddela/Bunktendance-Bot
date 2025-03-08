@@ -21,13 +21,7 @@ async function fetchAttendance(portalUrl, mobileNumber) {
 
         // Fill in login details
         await page.fill('#login_mobilenumber', mobileNumber);
-        // Detect the correct password based on the portal URL
-const password = portalUrl.includes('kmec') ? 'Kmec123$' : 'Ngit123$';
-
-// Fill in login details
-await page.fill('#login_mobilenumber', mobileNumber);
-await page.fill('input[type="password"]', password);
-
+        await page.fill('input[type="password"]', 'Ngit123$');
 
         // Click login button
         const loginButton = await page.$('button[type="submit"]');
@@ -38,9 +32,7 @@ await page.fill('input[type="password"]', password);
         await page.waitForNavigation({ waitUntil: 'networkidle' });
 
         // Manually go to attendance page
-        // 🔥 Dynamically go to the correct attendance page based on portal URL
-    await page.goto(`${portalUrl}/student/attendance`, { timeout: 60000 });
-
+        await page.goto(`http://ngit-netra.teleuniv.in/student/attendance`, { timeout: 60000 });
 
         logger.info("✅ Manually navigated to attendance page.");
 
@@ -89,7 +81,7 @@ await page.fill('input[type="password"]', password);
         });
 
         // ✅ Bunking Calculation
-        function calculateBunks(overallAttendance) {
+       function calculateBunks(overallAttendance) {
             let attendancePercentage = parseFloat(overallAttendance);
             if (isNaN(attendancePercentage)) return '⚠️ No data available';
         
