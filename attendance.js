@@ -1,4 +1,10 @@
 const { chromium } = require('playwright');
+
+const browser = await chromium.launch({
+  headless: true,
+  args: ['--no-sandbox', '--disable-setuid-sandbox'],
+});
+
 const logger = require('./login');
 
 async function fetchAttendance(portalUrl, mobileNumber) {
