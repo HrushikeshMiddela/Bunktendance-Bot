@@ -1,14 +1,12 @@
 const { chromium } = require('playwright');
-
-const browser = await chromium.launch({
-  headless: true,
-  args: ['--no-sandbox', '--disable-setuid-sandbox'],
-});
-
 const logger = require('./login');
 
 async function fetchAttendance(portalUrl, mobileNumber) {
-    const browser = await chromium.launch({ headless: false, slowMo: 1000 });
+    const browser = await chromium.launch({
+        headless: true,
+        args: ['--no-sandbox', '--disable-setuid-sandbox'],
+    });
+
     const page = await browser.newPage();
 
     try {
@@ -30,15 +28,15 @@ async function fetchAttendance(portalUrl, mobileNumber) {
         if (!loginButton) throw new Error('⚠️ Login button not found.');
         await loginButton.click();
 
-        // **Wait for login to complete**
+        // Wait for login to complete
         await page.waitForNavigation({ waitUntil: 'networkidle' });
 
-        // **Manually go to attendance page**
+        // Manually go to attendance page
         await page.goto(`http://ngit-netra.teleuniv.in/student/attendance`, { timeout: 60000 });
 
         logger.info("✅ Manually navigated to attendance page.");
 
-        // **Wait until attendance data loads**
+        // Wait until attendance data loads
         await page.waitForSelector('.ant-collapse-item', { timeout: 30000 });
 
         // ✅ Click the "Overall Attendance" collapsible section (last one)
@@ -53,39 +51,36 @@ async function fetchAttendance(portalUrl, mobileNumber) {
         const overallAttendance = await page.evaluate(() => {
             let progressBars = document.querySelectorAll('.ant-progress-bg');
             if (progressBars.length === 0) return '0%';
-            
-            // Get the last progress bar's width
+
             let lastProgressBar = progressBars[progressBars.length - 1];
             let width = lastProgressBar.style.width || 'N/A';
 
             return width.includes('%') ? width : 'N/A';
         });
 
-        // ✅ Extract "Today's Attendance" using <svg> icons with correct color detection
+        // ✅ Extract "Today's Attendance"
         const todayAttendance = await page.evaluate(() => {
             let attendanceList = [];
-            let icons = document.querySelectorAll('.ant-collapse-content-box > div:first-child svg'); // Select only first div's SVGs
-        
+            let icons = document.querySelectorAll('.ant-collapse-content-box > div:first-child svg');
+
             icons.forEach((svg, index) => {
-                if (index >= 7) return; // Ensure only first 8 icons are taken
-        
+                if (index >= 7) return;
+
                 let fillColor = svg.getAttribute('fill') || '';
-        
+
                 if (fillColor.toLowerCase() === 'green') {
-                    attendanceList.push('✅'); // Present
+                    attendanceList.push('✅');
                 } else if (fillColor.toLowerCase() === 'currentcolor' || fillColor === '') {
-                    attendanceList.push('⚪'); // Empty (Class not conducted)
+                    attendanceList.push('⚪');
                 } else {
-                    attendanceList.push('❌'); // Absent
+                    attendanceList.push('❌');
                 }
             });
-        
-            return attendanceList.join(' '); // Return formatted attendance
+
+            return attendanceList.join(' ');
         });
-        
 
-
-        // ✅ Bunking Calculation Based on College Rules
+        // ✅ Bunking Calculation
         function calculateBunks(overallAttendance) {
             let attendancePercentage = parseFloat(overallAttendance);
             if (isNaN(attendancePercentage)) return '⚠️ No data available';
@@ -113,11 +108,11 @@ async function fetchAttendance(portalUrl, mobileNumber) {
             }
         }
         
+
         let bunkingInfo = calculateBunks(overallAttendance);
 
         await browser.close();
 
-        // ✅ Final Formatted Response (No unnecessary escape characters)
         return `
 📊 Attendance Report
 
@@ -128,10 +123,10 @@ ${todayAttendance}
 
 ${bunkingInfo}
         `.trim();
-      
+
     } catch (error) {
         logger.error(`❌ Error fetching attendance: ${error.message}`);
-        await page.screenshot({ path: 'debug.png', fullPage: true }); // Capture screen for debugging
+        await page.screenshot({ path: 'debug.png', fullPage: true });
         await browser.close();
         throw new Error('⚠️ Could not fetch attendance. The website might have changed.');
     }
