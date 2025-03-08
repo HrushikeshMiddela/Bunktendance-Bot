@@ -49,7 +49,7 @@ Use a service like [Railway](https://railway.app), [Render](https://render.com),
 
 ## 🛠 Folder Structure
 ```sh
-📁 your-repo-name/
+📁 Bunktdance-Bot/
 ├── 📜 index.js         # Main bot logic
 ├── 📜 attendance.js    # Web scraping logic
 ├── login.js       # Logging utility
