@@ -1,0 +1,98 @@
+{"level":"info","message":"Launching Playwright browser..."}
+{"level":"info","message":"Waiting for attendance section..."}
+{"level":"error","message":"❌ Failed to extract attendance: page.waitForSelector: Timeout 5000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.ant-collapse-item') to be visible\u001b[22m\n"}
+{"level":"error","message":"Error fetching attendance: Failed to extract attendance."}
+{"level":"error","message":"❌ Bot launch failed: Cannot read properties of undefined (reading 'step')"}
+{"level":"info","message":"Launching Playwright browser..."}
+{"level":"info","message":"Navigating to http://ngit-netra.teleuniv.in/student/attendance"}
+{"level":"info","message":"Waiting for attendance section..."}
+{"level":"error","message":"❌ Failed to extract attendance: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.ant-collapse-item') to be visible\u001b[22m\n"}
+{"level":"info","message":"🖼 Debug screenshot saved as debug.png"}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Could not fetch attendance. The website structure might have changed."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from NGIT"}
+{"level":"info","message":"✅ Opened attendance page."}
+{"level":"error","message":"❌ Error fetching attendance: page.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[name=\"mobile\"]')\u001b[22m\n"}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from NGIT"}
+{"level":"info","message":"✅ Opened attendance page."}
+{"level":"info","message":"📩 Submitted mobile number."}
+{"level":"error","message":"❌ Error fetching attendance: page.waitForSelector: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.ant-collapse-item, .attendance-section') to be visible\u001b[22m\n"}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"error","message":"❌ Error fetching attendance: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.ant-collapse-item') to be visible\u001b[22m\n"}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Could not fetch attendance. The website structure might have changed."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Login failed. Could not reach attendance page."}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Could not fetch attendance. Check if login is working."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Login failed. Could not reach attendance page."}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Could not fetch attendance. Check if login is working."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Login successful, but attendance page did not load."}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Could not fetch attendance. The website might have changed."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔄 Retry 1/12 - Waiting for attendance data..."}
+{"level":"info","message":"🔄 Retry 2/12 - Waiting for attendance data..."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"Launching Playwright browser..."}
+{"level":"info","message":"Browser closed."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from NGIT"}
+{"level":"error","message":"❌ Error fetching attendance: page.fill: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('input[name=\"password\"]')\u001b[22m\n"}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Could not fetch attendance. The website structure might have changed."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔄 Retry 1/12 - Waiting for attendance data..."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Navigated to attendance page."}
+{"level":"error","message":"❌ Error fetching attendance: page.waitForSelector: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('.ant-collapse-item') to be visible\u001b[22m\n"}
+{"level":"error","message":"❌ Error fetching attendance: ⚠️ Could not fetch attendance. The website might have changed."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Navigated to attendance page."}
+{"level":"error","message":"❌ Error fetching attendance: 400: Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 9408"}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Navigated to attendance page."}
+{"error":"Failed to fetch attendance. Check your credentials and try again.","level":"error","message":"Attendance fetch error","userId":5385324475}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 9398497661 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"error":"400: Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 132","level":"error","message":"Attendance fetch error","userId":5385324475}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"error":"400: Bad Request: can't parse entities: Can't find end of the entity starting at byte offset 131","level":"error","message":"Attendance fetch error","userId":5385324475}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7702674977 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
+{"level":"info","message":"🔍 Fetching attendance for 7075714352 from http://ngit-netra.teleuniv.in/"}
+{"level":"info","message":"✅ Manually navigated to attendance page."}
