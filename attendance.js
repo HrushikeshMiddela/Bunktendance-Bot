@@ -1,5 +1,5 @@
 const { chromium } = require('playwright');
-const logger = require('./utils/login');
+const logger = require('./login');
 
 async function fetchAttendance(portalUrl, mobileNumber) {
     const browser = await chromium.launch({ headless: false, slowMo: 1000 });
