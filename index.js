@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { Telegraf } = require('telegraf');
 const { fetchAttendance } = require('./attendance');
-const logger = require('./utils/login');
+const logger = require('./login');
 
 const bot = new Telegraf(process.env.BOT_TOKEN);
 
