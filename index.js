@@ -86,7 +86,7 @@ bot.on('text', async (ctx) => {
     userSessions.delete(userId);
 
     try {
-      await ctx.reply('⏳ agu kochem time padthadi...'); 
+      await ctx.reply('⏳ agu konchem time padthadi...'); 
       const attendanceData = await fetchAttendance(PORTAL_URL, userInput, "NGIT");
       await ctx.reply(attendanceData, { parse_mode: 'Markdown' });
 
