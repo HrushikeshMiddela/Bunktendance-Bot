@@ -1,6 +1,6 @@
 # NGIT Bunktendance Bot
 
-🚀 **NGIT Bunktendance Bot** is a Telegram bot that allows students to check their attendance percentage by entering their Netra-registered mobile number. The bot scrapes attendance data from the NGIT/KMEC student portal and provides real-time updates.
+🚀 **NGIT Bunktendance Bot** is a Telegram bot that allows students to check their attendance percentage by entering their Netra-registered mobile number. The bot scrapes attendance data from the NGIT student portal and provides real-time updates.
 
 ## 📌 Features
 - 📊 Check attendance percentage for NGIT students
