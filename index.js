@@ -76,10 +76,10 @@ bot.on('text', async (ctx) => {
     return ctx.reply('⚠️ Please start with /start.');
   }
 
-  const userInput = ctx.message.text.trim();
+  let userInput = ctx.message.text.replace(/\D/g, '').slice(-10); // Remove non-digits, take last 10 digits
 
   if (userSession.step === 'askMobile') {
-    if (!/^\d{10}$/.test(userInput)) {
+    if (userInput.length !== 10) {
       return ctx.reply('🚫 Send a valid 10-digit mobile number.');
     }
 
